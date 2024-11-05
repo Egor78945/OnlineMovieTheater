@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: authentication-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://service-discovery:${SERVICE_DISCOVERY_SERVER_PORT}/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+server:
+  port: ${AUTHENTICATION_SERVICE_SERVER_PORT}

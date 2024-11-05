@@ -17,3 +17,10 @@ services:
       - SERVICE_DISCOVERY_SERVER_PORT=${SERVICE_DISCOVERY_SERVER_PORT}
     ports:
       - ${API_GATEWAY_SERVER_PORT}:${API_GATEWAY_SERVER_PORT}
+
+  authentication-service:
+    container_name: authentication-service
+    build: ./authentication-service/.
+    environment:
+      - SERVICE_DISCOVERY_SERVER_PORT=${SERVICE_DISCOVERY_SERVER_PORT}
+      - AUTHENTICATION_SERVICE_SERVER_PORT=${AUTHENTICATION_SERVICE_SERVER_PORT}
