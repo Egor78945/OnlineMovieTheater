@@ -8,3 +8,12 @@ services:
       - SERVICE_DISCOVERY_SERVER_PORT=${SERVICE_DISCOVERY_SERVER_PORT}
     ports:
       - ${SERVICE_DISCOVERY_SERVER_PORT}:${SERVICE_DISCOVERY_SERVER_PORT}
+
+  api-gateway:
+    container_name: api-gateway
+    build: ./api-gateway/.
+    environment:
+      - API_GATEWAY_SERVER_PORT=${API_GATEWAY_SERVER_PORT}
+      - SERVICE_DISCOVERY_SERVER_PORT=${SERVICE_DISCOVERY_SERVER_PORT}
+    ports:
+      - ${API_GATEWAY_SERVER_PORT}:${API_GATEWAY_SERVER_PORT}
