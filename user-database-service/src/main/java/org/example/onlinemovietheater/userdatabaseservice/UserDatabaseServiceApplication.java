@@ -1,5 +1,6 @@
 package org.example.onlinemovietheater.userdatabaseservice;
 
+import com.example.grpc.user.UserDatabaseService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
