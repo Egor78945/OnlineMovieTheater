@@ -33,6 +33,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     implementation group: 'net.devh', name: 'grpc-client-spring-boot-starter', version: '3.1.0.RELEASE'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.5'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.5'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.5'
 
     compileOnly 'org.projectlombok:lombok'
 

@@ -9,5 +9,9 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
 
+jwt:
+  token: ${JWT_SECRET_TOKEN}
+  lifetime: ${JWT_LIFETIME}
+
 server:
   port: ${AUTHENTICATION_SERVICE_SERVER_PORT}
