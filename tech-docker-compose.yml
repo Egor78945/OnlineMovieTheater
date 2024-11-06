@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  postgres1:
+    container_name: postgres1
+    image: postgres
+    environment:
+      POSTGRES_DB: ${USER_DATABASE_SERVICE_DATABASE_NAME}
+      POSTGRES_USER: ${POSTGRESQL1_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRESQL1_PASSWORD}
+    volumes:
+      - ${POSTGRESQL1_DATA_STORAGE}
+    ports:
+      - ${POSTGRESQL1_SERVER_PORT}:${POSTGRESQL1_SERVER_PORT}

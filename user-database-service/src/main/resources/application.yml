@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: user-database-service
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://postgres1:${POSTGRESQL1_SERVER_PORT}/${USER_DATABASE_SERVICE_DATABASE_NAME}
+    username: ${POSTGRESQL1_USERNAME}
+    password: ${POSTGRESQL1_PASSWORD}
+
+  jpa:
+    database: postgresql
+    show-sql: true
+
+  liquibase:
+    change-log: db/changelog/main/main-changelog.yml
+
+  data:
+    jdbc:
+      dialect: postgresql
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://service-discovery:${SERVICE_DISCOVERY_SERVER_PORT}/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+server:
+  port: ${USER_DATABASE_SERVICE_SERVER_PORT}
+
+grpc:
+  server:
+    port: ${USER_DATABASE_SERVICE_GRPC_SERVER_PORT}

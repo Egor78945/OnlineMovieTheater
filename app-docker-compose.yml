@@ -17,6 +17,8 @@ services:
       - SERVICE_DISCOVERY_SERVER_PORT=${SERVICE_DISCOVERY_SERVER_PORT}
     ports:
       - ${API_GATEWAY_SERVER_PORT}:${API_GATEWAY_SERVER_PORT}
+    depends_on:
+      - service-discovery
 
   authentication-service:
     container_name: authentication-service
@@ -26,3 +28,19 @@ services:
       - AUTHENTICATION_SERVICE_SERVER_PORT=${AUTHENTICATION_SERVICE_SERVER_PORT}
       - JWT_SECRET_TOKEN=${JWT_SECRET_TOKEN}
       - JWT_LIFETIME=${JWT_LIFETIME}
+    depends_on:
+      - api-gateway
+
+  user-database-service:
+    container_name: user-database-service
+    build: ./user-database-service/.
+    environment:
+      - SERVICE_DISCOVERY_SERVER_PORT=${SERVICE_DISCOVERY_SERVER_PORT}
+      - USER_DATABASE_SERVICE_SERVER_PORT=${USER_DATABASE_SERVICE_SERVER_PORT}
+      - USER_DATABASE_SERVICE_DATABASE_NAME=${USER_DATABASE_SERVICE_DATABASE_NAME}
+      - USER_DATABASE_SERVICE_GRPC_SERVER_PORT=${USER_DATABASE_SERVICE_GRPC_SERVER_PORT}
+      - POSTGRESQL1_SERVER_PORT=${POSTGRESQL1_SERVER_PORT}
+      - POSTGRESQL1_USERNAME=${POSTGRESQL1_USERNAME}
+      - POSTGRESQL1_PASSWORD=${POSTGRESQL1_PASSWORD}
+    depends_on:
+      - api-gateway
