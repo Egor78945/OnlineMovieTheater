@@ -13,5 +13,14 @@ jwt:
   token: ${JWT_SECRET_TOKEN}
   lifetime: ${JWT_LIFETIME}
 
+grpc:
+  client:
+    user-database-grpc-service:
+      address: 'discovery:///user-database-service'
+      negotiation-type: plaintext
+
 server:
   port: ${AUTHENTICATION_SERVICE_SERVER_PORT}
+
+
+
