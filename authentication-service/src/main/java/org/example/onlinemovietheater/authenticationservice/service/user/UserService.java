@@ -19,8 +19,12 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         try {
             return UserGrpcConverter.convert(userGrpcService.getUserDetails(UserGrpcConverter.convert(username)));
-        } catch (StatusRuntimeException e){
+        } catch (StatusRuntimeException e) {
             throw new UsernameNotFoundException(e.getStatus().getDescription());
         }
+    }
+
+    public boolean existsUserByEmail(String email) {
+        return UserGrpcConverter.convert(userGrpcService.existsUserByEmail(UserGrpcConverter.convert(email)));
     }
 }

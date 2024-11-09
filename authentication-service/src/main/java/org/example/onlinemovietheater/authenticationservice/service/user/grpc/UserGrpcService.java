@@ -13,11 +13,15 @@ public class UserGrpcService {
     @GrpcClient("user-database-grpc-service")
     private UserServiceGrpc.UserServiceBlockingStub userServiceBlockingStub;
 
-    public UserDatabaseService.UserDetailsMessage getUserDetails(UserDatabaseService.StringMessage stringMessage) throws StatusRuntimeException{
-       return userServiceBlockingStub.getUserDetails(stringMessage);
+    public UserDatabaseService.UserDetailsMessage getUserDetails(UserDatabaseService.StringMessage stringMessage) throws StatusRuntimeException {
+        return userServiceBlockingStub.getUserDetails(stringMessage);
     }
 
-    public UserDatabaseService.EmptyMessage saveUser(UserDatabaseService.UserDetailsMessage userDetailsMessage){
+    public UserDatabaseService.EmptyMessage saveUser(UserDatabaseService.UserDetailsMessage userDetailsMessage) {
         return userServiceBlockingStub.saveUserDetails(userDetailsMessage);
+    }
+
+    public UserDatabaseService.BooleanMessage existsUserByEmail(UserDatabaseService.StringMessage stringMessage) {
+        return userServiceBlockingStub.existsUserByEmail(stringMessage);
     }
 }

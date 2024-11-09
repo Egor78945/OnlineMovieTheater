@@ -44,3 +44,14 @@ services:
       - POSTGRESQL1_PASSWORD=${POSTGRESQL1_PASSWORD}
     depends_on:
       - api-gateway
+
+  movie-service:
+    container_name: movie-service
+    build: ./movie-service/.
+    environment:
+      - SERVICE_DISCOVERY_SERVER_PORT=${SERVICE_DISCOVERY_SERVER_PORT}
+      - MOVIE_SERVICE_SERVER_PORT=${MOVIE_SERVICE_SERVER_PORT}
+      - JWT_SECRET_TOKEN=${JWT_SECRET_TOKEN}
+      - JWT_LIFETIME=${JWT_LIFETIME}
+    depends_on:
+      - api-gateway

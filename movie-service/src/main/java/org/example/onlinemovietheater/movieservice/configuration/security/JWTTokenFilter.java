@@ -1,22 +1,22 @@
-package org.example.onlinemovietheater.authenticationservice.configuration.security;
+package org.example.onlinemovietheater.movieservice.configuration.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.example.onlinemovietheater.authenticationservice.configuration.jwt.JWTConfiguration;
-import org.example.onlinemovietheater.authenticationservice.service.user.UserService;
-import org.springframework.context.annotation.Configuration;
+import org.example.onlinemovietheater.movieservice.configuration.jwt.JWTConfiguration;
+import org.example.onlinemovietheater.movieservice.service.user.UserService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.util.stream.Collectors;
 
-@Configuration
+@Service
 @RequiredArgsConstructor
 public class JWTTokenFilter extends OncePerRequestFilter {
     private final JWTConfiguration jwtConfiguration;

@@ -31,4 +31,11 @@ public class UserGrpcConverter {
                 .setStatus(user.getAccountStatus())
                 .build();
     }
+
+    public static UserDatabaseService.BooleanMessage convert(boolean bool){
+        return UserDatabaseService.BooleanMessage
+                .newBuilder()
+                .setBoolean(bool)
+                .build();
+    }
 }

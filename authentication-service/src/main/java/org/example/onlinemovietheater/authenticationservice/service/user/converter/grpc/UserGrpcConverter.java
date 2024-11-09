@@ -14,4 +14,8 @@ public class UserGrpcConverter {
                 .setString(message)
                 .build();
     }
+
+    public static boolean convert(UserDatabaseService.BooleanMessage booleanMessage){
+        return booleanMessage.getBoolean();
+    }
 }

@@ -46,4 +46,10 @@ public class UserGrpcService extends UserServiceGrpc.UserServiceImplBase {
             responseObserver.onError(Status.ALREADY_EXISTS.withDescription("User with this email already exists.").asRuntimeException());
         }
     }
+
+    @Override
+    public void existsUserByEmail(UserDatabaseService.StringMessage request, StreamObserver<UserDatabaseService.BooleanMessage> responseObserver) {
+        responseObserver.onNext(UserGrpcConverter.convert(userService.existsUserByEmail(request.getString())));
+        responseObserver.onCompleted();
+    }
 }

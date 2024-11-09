@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: movie-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://service-discovery:${SERVICE_DISCOVERY_SERVER_PORT}/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+jwt:
+  token: ${JWT_SECRET_TOKEN}
+  lifetime: ${JWT_LIFETIME}
+
+grpc:
+  client:
+    user-database-grpc-service:
+      address: 'discovery:///user-database-service'
+      negotiation-type: plaintext
+
+server:
+  port: ${MOVIE_SERVICE_SERVER_PORT}
