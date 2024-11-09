@@ -13,7 +13,11 @@ message UserDetailsMessage {
   bool status = 4;
 }
 
+message EmptyMessage {
+
+}
+
 service UserService{
   rpc getUserDetails(StringMessage) returns (UserDetailsMessage);
-  rpc saveUserDetails(UserDetailsMessage) returns (StringMessage);
+  rpc saveUserDetails(UserDetailsMessage) returns (EmptyMessage);
 }

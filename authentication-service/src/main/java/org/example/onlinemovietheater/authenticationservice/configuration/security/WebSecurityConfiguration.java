@@ -2,6 +2,7 @@ package org.example.onlinemovietheater.authenticationservice.configuration.secur
 
 import lombok.RequiredArgsConstructor;
 import org.example.onlinemovietheater.authenticationservice.configuration.jwt.JWTConfiguration;
+import org.example.onlinemovietheater.authenticationservice.service.user.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -22,13 +23,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class WebSecurityConfiguration {
-    private final JWTConfiguration jwtConfiguration;
     private final JWTTokenFilter jwtTokenFilter;
+    private final UserService userService;
 
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider(PasswordEncoder passwordEncoder) {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-//        auth.setUserDetailsService(userService);
+        auth.setUserDetailsService(userService);
         auth.setPasswordEncoder(passwordEncoder);
         return auth;
     }

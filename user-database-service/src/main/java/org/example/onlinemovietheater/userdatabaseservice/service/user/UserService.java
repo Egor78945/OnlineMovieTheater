@@ -5,6 +5,8 @@ import org.example.onlinemovietheater.userdatabaseservice.model.entity.User;
 import org.example.onlinemovietheater.userdatabaseservice.repositories.user.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -14,7 +16,11 @@ public class UserService {
         return userRepository.save(user).getId();
     }
 
-    public User getUserByEmail(String email){
-        return userRepository.findUserByEmail(email);
+    public User getUserByEmail(String email) throws Exception {
+        return userRepository.findUserByEmail(email).orElseThrow(() -> new Exception(String.format("User with email %s hasn't found.", email)));
+    }
+
+    public boolean existsUserByEmail(String email){
+        return userRepository.existsUserByEmail(email);
     }
 }

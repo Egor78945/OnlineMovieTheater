@@ -1,4 +1,4 @@
-package org.example.onlinemovietheater.userdatabaseservice.service.converter.user.grpc;
+package org.example.onlinemovietheater.userdatabaseservice.service.user.converter.grpc;
 
 
 import com.example.grpc.user.UserDatabaseService;
