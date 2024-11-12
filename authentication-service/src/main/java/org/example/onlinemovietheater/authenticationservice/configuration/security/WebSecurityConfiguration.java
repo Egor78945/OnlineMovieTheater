@@ -23,7 +23,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class WebSecurityConfiguration {
-    private final JWTTokenFilter jwtTokenFilter;
     private final UserService userService;
 
     @Bean
@@ -47,9 +46,7 @@ public class WebSecurityConfiguration {
                 .exceptionHandling(e -> e.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/auth").permitAll()
-                        .anyRequest().hasAnyAuthority("USER_ROLE", "ADMIN_ROLE"))
-                .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
+                        .requestMatchers("/auth").permitAll())
                 .logout(LogoutConfigurer::permitAll);
         return http.build();
     }

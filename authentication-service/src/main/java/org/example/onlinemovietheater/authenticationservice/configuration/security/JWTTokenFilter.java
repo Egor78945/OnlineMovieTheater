@@ -16,7 +16,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.stream.Collectors;
 
-@Configuration
 @RequiredArgsConstructor
 public class JWTTokenFilter extends OncePerRequestFilter {
     private final JWTConfiguration jwtConfiguration;
