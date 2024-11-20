@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.example.grpc.movie;
+
+message MovieDescriptionMessage {
+  string id = 1;
+  string description = 2;
+}
+
+message ListMovieDescriptionMessage {
+  repeated MovieDescriptionMessage message = 1;
+}
+
+message StringMessage {
+  string string = 1;
+}
+
+message BooleanMessage {
+  bool boolean = 1;
+}
+
+service MovieDescriptionService {
+  rpc saveMessageDescription(MovieDescriptionMessage) returns (BooleanMessage);
+  rpc getMessageDescriptionByDescription(StringMessage) returns (ListMovieDescriptionMessage);
+}

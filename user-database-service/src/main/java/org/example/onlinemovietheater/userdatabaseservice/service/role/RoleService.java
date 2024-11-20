@@ -2,7 +2,7 @@ package org.example.onlinemovietheater.userdatabaseservice.service.role;
 
 import lombok.RequiredArgsConstructor;
 import org.example.onlinemovietheater.userdatabaseservice.model.entity.Role;
-import org.example.onlinemovietheater.userdatabaseservice.repositories.role.RoleRepository;
+import org.example.onlinemovietheater.userdatabaseservice.repository.role.RoleRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

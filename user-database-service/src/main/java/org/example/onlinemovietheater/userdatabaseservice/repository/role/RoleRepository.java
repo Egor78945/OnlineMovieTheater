@@ -1,4 +1,4 @@
-package org.example.onlinemovietheater.userdatabaseservice.repositories.role;
+package org.example.onlinemovietheater.userdatabaseservice.repository.role;
 
 import org.example.onlinemovietheater.userdatabaseservice.model.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;

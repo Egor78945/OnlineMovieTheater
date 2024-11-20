@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: movie-description-service
+
+  elasticsearch:
+    uris: http://elasticsearch:${ELASTICSEARCH_SERVER_PORT}
+    username: ${ELASTICSEARCH_USERNAME}
+    password: ${ELASTICSEARCH_PASSWORD}
+    index:
+      movie-description: ${MOVIE_DESCRIPTION_SERVICE_ELASTICSEARCH_INDEX_MOVIE_DESCRIPTION}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://service-discovery:${SERVICE_DISCOVERY_SERVER_PORT}/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+server:
+  port: ${MOVIE_DESCRIPTION_SERVICE_SERVER_PORT}
+
+grpc:
+  server:
+    port: ${MOVIE_DESCRIPTION_SERVICE_GRPC_SERVER_PORT}

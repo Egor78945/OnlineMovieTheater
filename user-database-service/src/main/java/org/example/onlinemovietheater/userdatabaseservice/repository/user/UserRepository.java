@@ -1,4 +1,4 @@
-package org.example.onlinemovietheater.userdatabaseservice.repositories.user;
+package org.example.onlinemovietheater.userdatabaseservice.repository.user;
 
 import org.example.onlinemovietheater.userdatabaseservice.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

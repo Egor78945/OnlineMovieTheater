@@ -2,10 +2,8 @@ package org.example.onlinemovietheater.userdatabaseservice.service.user;
 
 import lombok.RequiredArgsConstructor;
 import org.example.onlinemovietheater.userdatabaseservice.model.entity.User;
-import org.example.onlinemovietheater.userdatabaseservice.repositories.user.UserRepository;
+import org.example.onlinemovietheater.userdatabaseservice.repository.user.UserRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
