@@ -13,6 +13,18 @@ services:
     ports:
       - ${POSTGRESQL1_SERVER_PORT}:${POSTGRESQL1_SERVER_PORT}
 
+  postgres2:
+    container_name: postgres2
+    image: postgres
+    environment:
+      POSTGRES_DB: ${USER_DATABASE_SERVICE_DATABASE_NAME}
+      POSTGRES_USER: ${POSTGRESQL2_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRESQL2_PASSWORD}
+    volumes:
+      - ${POSTGRESQL2_DATA_STORAGE}
+    ports:
+      - ${POSTGRESQL2_SERVER_PORT}:${POSTGRESQL2_SERVER_PORT}
+
   elasticsearch:
     container_name: elasticsearch
     build: ./configuration/elasticsearch/.
