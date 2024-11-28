@@ -14,7 +14,7 @@ public class MovieDescription {
     @Field(type = FieldType.Text)
     private String description;
 
-    public MovieDescription(String description, String id) {
+    public MovieDescription(String id, String description) {
         this.description = description;
         this.id = id;
     }

@@ -1,4 +1,5 @@
 spring:
+
   application:
     name: movie-description-service
 
@@ -8,6 +9,14 @@ spring:
     password: ${ELASTICSEARCH_PASSWORD}
     index:
       movie-description: ${MOVIE_DESCRIPTION_SERVICE_ELASTICSEARCH_INDEX_MOVIE_DESCRIPTION}
+    connection-timeout: 5000
+
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+
+
 
 eureka:
   client:

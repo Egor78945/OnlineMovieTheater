@@ -9,5 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface MovieDescriptionRepository extends ElasticsearchRepository<MovieDescription, String> {
-    Optional<List<MovieDescription>> findAllByDescriptionContaining(String description);
+    Optional<List<MovieDescription>> findMovieDescriptionsByDescriptionContaining(String description);
 }

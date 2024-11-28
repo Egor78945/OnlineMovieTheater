@@ -18,6 +18,9 @@ grpc:
     user-database-grpc-service:
       address: 'discovery:///user-database-service'
       negotiation-type: plaintext
+    movie-description-grpc-service:
+      address: 'discovery:///movie-description-service'
+      negotiation-type: plaintext
 
 server:
   port: ${MOVIE_SERVICE_SERVER_PORT}

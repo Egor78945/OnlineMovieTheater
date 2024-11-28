@@ -25,13 +25,10 @@ public class MovieDescriptionGrpcConverter {
                 .build();
     }
 
-    public static MovieDescriptionDatabaseService.ListMovieDescriptionMessage convert(List<MovieDescription> movieDescriptions) {
-        return MovieDescriptionDatabaseService.ListMovieDescriptionMessage
+    public static MovieDescriptionDatabaseService.ListStringMessage convert(List<String> movieDescriptions) {
+        return MovieDescriptionDatabaseService.ListStringMessage
                 .newBuilder()
-                .addAllMessage(movieDescriptions
-                        .stream()
-                        .map(MovieDescriptionGrpcConverter::convert)
-                        .toList())
+                .addAllMessage(movieDescriptions)
                 .build();
     }
 }

@@ -18,6 +18,6 @@ public class MovieDescriptionService {
     }
 
     public List<MovieDescription> getAllByDescription(String description){
-        return movieDescriptionRepository.findAllByDescriptionContaining(description).orElseThrow(() -> new RuntimeException("No matches found"));
+        return movieDescriptionRepository.findMovieDescriptionsByDescriptionContaining(description).orElseThrow(() -> new RuntimeException("No matches found"));
     }
 }
