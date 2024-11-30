@@ -17,9 +17,10 @@ services:
     container_name: postgres2
     image: postgres
     environment:
-      POSTGRES_DB: ${USER_DATABASE_SERVICE_DATABASE_NAME}
+      POSTGRES_DB: ${MOVIE_NAME_SERVICE_DATABASE_NAME}
       POSTGRES_USER: ${POSTGRESQL2_USERNAME}
       POSTGRES_PASSWORD: ${POSTGRESQL2_PASSWORD}
+    command: postgres -p ${POSTGRESQL2_SERVER_PORT}
     volumes:
       - ${POSTGRESQL2_DATA_STORAGE}
     ports:

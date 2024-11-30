@@ -1,10 +1,10 @@
-package org.example.onlinemovietheater.movieservice.service.movie.converter.grpc;
+package org.example.onlinemovietheater.movieservice.service.movie.description.converter.grpc;
 
-import com.example.grpc.movie.MovieDescriptionDatabaseService;
+import com.example.grpc.movie.description.MovieDescriptionDatabaseService;
 
 import java.util.List;
 
-public class MovieGrpcConverter {
+public class MovieDescriptionGrpcConverter {
     public static MovieDescriptionDatabaseService.MovieDescriptionMessage convert(Long id, String description) {
         return MovieDescriptionDatabaseService.MovieDescriptionMessage
                 .newBuilder()

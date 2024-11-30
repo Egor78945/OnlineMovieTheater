@@ -1,7 +1,7 @@
 package org.example.onlinemovietheater.moviedescriptionservice.service.movie.grpc;
 
-import com.example.grpc.movie.MovieDescriptionDatabaseService;
-import com.example.grpc.movie.MovieDescriptionServiceGrpc;
+import com.example.grpc.movie.description.MovieDescriptionDatabaseService;
+import com.example.grpc.movie.description.MovieDescriptionServiceGrpc;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;

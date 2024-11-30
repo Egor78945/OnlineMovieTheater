@@ -21,6 +21,9 @@ grpc:
     movie-description-grpc-service:
       address: 'discovery:///movie-description-service'
       negotiation-type: plaintext
+    movie-name-service:
+      address: 'discovery:///movie-name-service'
+      negotiation-type: plaintext
 
 server:
   port: ${MOVIE_SERVICE_SERVER_PORT}

@@ -1,10 +1,9 @@
 package org.example.onlinemovietheater.movieservice.service.movie;
 
-import io.grpc.StatusRuntimeException;
 import lombok.RequiredArgsConstructor;
-import org.example.onlinemovietheater.movieservice.model.movie.dto.request.MovieDescriptionModel;
-import org.example.onlinemovietheater.movieservice.service.movie.converter.grpc.MovieGrpcConverter;
-import org.example.onlinemovietheater.movieservice.service.movie.grpc.MovieGrpcService;
+import org.example.onlinemovietheater.movieservice.model.movie.dto.request.MovieModel;
+import org.example.onlinemovietheater.movieservice.service.movie.description.MovieDescriptionService;
+import org.example.onlinemovietheater.movieservice.service.movie.name.MovieNameService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,15 +11,17 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class MovieService {
-    private final MovieGrpcService movieGrpcService;
+    private final MovieNameService movieNameService;
+    private final MovieDescriptionService movieDescriptionService;
 
-    public void saveMovieDescription(MovieDescriptionModel model) {
-        //save to psql
-        movieGrpcService.saveMovieDescription(MovieGrpcConverter.convert(1L, model.getDescription()));
+    public void saveMovie(MovieModel movieModel) {
+        movieNameService.saveMovieName(movieModel.getName());
+        Long movieId = movieNameService.getMovieNameIdByName(movieModel.getName());
+        movieDescriptionService.saveMovieDescription(movieId, movieModel.getDescription());
     }
 
     public List<String> getMoviesByDescription(String description) {
-        List<Long> idList = MovieGrpcConverter.convert(movieGrpcService.getMovieDescriptionIdByDescription(MovieGrpcConverter.convert(description)));
-        return null;
+        List<Long> idList = movieDescriptionService.getMoviesIdByDescription(description);
+        return idList.stream().map(movieNameService::getMovieNameById).toList();
     }
 }

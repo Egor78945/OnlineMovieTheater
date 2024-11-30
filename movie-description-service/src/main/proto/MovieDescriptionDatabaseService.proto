@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package com.example.grpc.movie;
+package com.example.grpc.movie.description;
 
 message MovieDescriptionMessage {
   string id = 1;

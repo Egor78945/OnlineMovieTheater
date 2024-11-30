@@ -1,6 +1,6 @@
 package org.example.onlinemovietheater.moviedescriptionservice.service.movie.converter.grpc;
 
-import com.example.grpc.movie.MovieDescriptionDatabaseService;
+import com.example.grpc.movie.description.MovieDescriptionDatabaseService;
 import org.example.onlinemovietheater.moviedescriptionservice.model.elasticsearch.document.MovieDescription;
 
 import java.util.List;

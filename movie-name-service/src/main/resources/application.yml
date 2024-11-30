@@ -1,1 +1,35 @@
-spring.application.name=movie-name-service
+spring:
+  application:
+    name: movie-name-service
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://postgres2:${POSTGRESQL2_SERVER_PORT}/${MOVIE_NAME_SERVICE_DATABASE_NAME}
+    username: ${POSTGRESQL2_USERNAME}
+    password: ${POSTGRESQL2_PASSWORD}
+
+  jpa:
+    database: postgresql
+    show-sql: true
+
+  liquibase:
+    change-log: db/changelog/main/main-changelog.yml
+
+  data:
+    jdbc:
+      dialect: postgresql
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://service-discovery:${SERVICE_DISCOVERY_SERVER_PORT}/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+grpc:
+  server:
+    port: ${MOVIE_NAME_SERVICE_GRPC_SERVER_PORT}
+
+server:
+  port: ${MOVIE_NAME_SERVICE_SERVER_PORT}
+

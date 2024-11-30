@@ -1,14 +1,14 @@
-package org.example.onlinemovietheater.movieservice.service.movie.grpc;
+package org.example.onlinemovietheater.movieservice.service.movie.description.grpc;
 
-import com.example.grpc.movie.MovieDescriptionDatabaseService;
-import com.example.grpc.movie.MovieDescriptionServiceGrpc;
+import com.example.grpc.movie.description.MovieDescriptionDatabaseService;
+import com.example.grpc.movie.description.MovieDescriptionServiceGrpc;
 import lombok.RequiredArgsConstructor;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class MovieGrpcService {
+public class MovieDescriptionGrpcService {
     @GrpcClient("movie-description-grpc-service")
     private MovieDescriptionServiceGrpc.MovieDescriptionServiceBlockingStub movieDescriptionServiceBlockingStub;
 
